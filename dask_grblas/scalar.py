@@ -201,6 +201,10 @@ class Scalar(BaseType):
         scalar = Scalar.from_value(val, dtype=self.dtype)
         self._delayed = scalar._delayed
 
+    def __repr__(self, expr=None):
+        # TODO: What should this do?
+        pass
+
 
 class PythonScalar:
     __init__ = Scalar.__init__
