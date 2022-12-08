@@ -334,7 +334,7 @@ class BaseType:
         else:
             raise NotImplementedError(f"{typ}")
 
-    def wait(self):
+    def wait(self, how="materialize"):
         # TODO: What should this do?
         self._meta.wait()
 
