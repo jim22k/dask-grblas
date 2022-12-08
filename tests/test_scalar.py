@@ -11,10 +11,10 @@ from .utils import compare
 
 
 def test_new():
-    s = gb.Scalar.new(int)
+    s = gb.Scalar(int)
     ds = dgb.Scalar.new(int)
     compare(lambda x: x, s, ds)
-    s = gb.Scalar.new(float)
+    s = gb.Scalar(float)
     ds = dgb.Scalar.new(float)
     compare(lambda x: x, s, ds)
     o = object()
