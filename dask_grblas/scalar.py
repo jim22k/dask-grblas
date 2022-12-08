@@ -59,11 +59,11 @@ class Scalar(BaseType):
         return from_delayed(cls, scalar, dtype, name=name)
 
     @classmethod
-    def from_value(cls, value, dtype=None, *, name=None):
+    def from_value(cls, value, dtype=None, *, is_cscalar=False, name=None):
         return from_value(cls, value, dtype=dtype, name=name)
 
     @classmethod
-    def new(cls, dtype, *, name=None):
+    def new(cls, dtype, *, is_cscalar=False, name=None):
         return new(cls, dtype, name=name)
 
     def __init__(self, delayed, meta=None):
@@ -97,7 +97,7 @@ class Scalar(BaseType):
         assert type(delayed) is GbDelayed
         delayed._update(self, accum=accum)
 
-    def dup(self, dtype=None, *, name=None):
+    def dup(self, dtype=None, *, clear=False, is_cscalar=None, name=None):
         if dtype is None:
             meta = self._meta
         else:
