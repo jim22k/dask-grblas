@@ -11,10 +11,10 @@ from .utils import compare
 
 
 def test_new():
-    s = gb.Scalar.new(int)
+    s = gb.Scalar(int)
     ds = dgb.Scalar.new(int)
     compare(lambda x: x, s, ds)
-    s = gb.Scalar.new(float)
+    s = gb.Scalar(float)
     ds = dgb.Scalar.new(float)
     compare(lambda x: x, s, ds)
     o = object()
@@ -191,7 +191,7 @@ def test_signatures_match_grblas():
 
     s1 = gb.Scalar.from_value(1)
     s2 = dgb.Scalar.from_value(1)
-    skip = {"from_pygraphblas", "to_pygraphblas", "__class__", "__init__"}
+    skip = {"from_pygraphblas", "to_pygraphblas", "__class__", "__init__", "__new__", "get"}
     d1 = {
         key: inspect.signature(val)
         for key, val in inspect.getmembers(s1)
